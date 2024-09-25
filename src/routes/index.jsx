@@ -3,20 +3,17 @@ import { Route, Routes } from "react-router-dom";
 import { publicRoutes } from "./publicRoute";
 import { privateRoutes } from "./privateRoute";
 import Spinner from "../components/Spinner";
-const Sidebar = lazy(() => import("../layouts/app/sidebar"));
+const Sidebar = lazy(() => import("../layout/private-layout"));
 import useAuth from "../hooks/useAuth";
 // eslint-disable-next-line react-refresh/only-export-components
-const WebsiteLayout = lazy(() => import("../layouts/website"));
+const PublicIndex = lazy(() => import("../layout/public-layout"));
 export default function Index() {
-	// const hasAccess = (userRoles, accessRoles) => {
-	//   return userRoles.some(role => accessRoles.includes(role));
-	// };
-	const { user } = useAuth();
+	const { isAuthenticated } = useAuth();
 
 	return (
 		<Suspense fallback={<Spinner />}>
 			<Routes>
-				<Route path="*" element={<WebsiteLayout />}>
+				<Route path="*" element={<PublicIndex />}>
 					{publicRoutes.map(({ path, Component }) => {
 						return (
 							<Route
@@ -39,9 +36,9 @@ export default function Index() {
 						</Suspense>
 					}
 				>
-					{privateRoutes.map(({ path, Component, accessList }) => {
+					{privateRoutes.map(({ path, Component }) => {
 						//  hasAccess(user.roles, accessRoles) ?
-						if (accessList.includes(user?.permission.module))
+						if (isAuthenticated)
 							return (
 								<Route
 									key={path}

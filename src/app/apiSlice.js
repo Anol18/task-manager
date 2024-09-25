@@ -18,7 +18,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
 export const apiSlice = createApi({
 	baseQuery: baseQueryWithReauth,
-	keepUnusedDataFor: 600,
+	keepUnusedDataFor: 1000,
 	// refetchOnMountOrArgChange:10,
 	endpoints: (builder) => ({}), // eslint-disable-line
 });
