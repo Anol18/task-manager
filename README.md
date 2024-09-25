@@ -30,7 +30,7 @@ To build and run production build
 
 ## 🔗 Live Link
 
-<!-- [[LIve Link]](https://github.com/Anol18/flexi-plan.git) -->
+[[LIve Link]](https://task-manger-2024.netlify.app)
 
 ## challenges
 
