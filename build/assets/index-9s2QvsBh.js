@@ -1,0 +1,1 @@
+import{n as e,O as t}from"./index-BOP-Y-Uy.js";function n(){return e.jsx(e.Fragment,{children:e.jsx("div",{className:"flex justify-center place-items-center h-screen",children:e.jsx(t,{})})})}export{n as default};
